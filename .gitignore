@@ -1,0 +1,22 @@
+# Build artifacts
+build/
+*.o
+*.dSYM/
+test_runner
+robot_code
+
+# PROS build artifacts (if using PROS)
+*.bin
+*.elf
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
