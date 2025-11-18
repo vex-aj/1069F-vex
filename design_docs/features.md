@@ -25,10 +25,10 @@
 
 The robot has:
 - **Drive train**: 6 wheels, each powered by 6 individual motors (✅ complete)
-- **Intake mechanism**: Uses one 5.5V motor to collect balls
+- **Intake mechanism**: Uses one 5.5V motor to collect balls (✅ complete)
 - **Ramp system**: Rubber bands lead up to three separate wheels with rubber bands for grip
   - First two wheels: Share one 5.5V motor (brings balls up)
-  - Last wheel: Uses one full power motor (pushes balls out at top)
+  - Last wheel: Uses one full power motor (pushes balls out at top)(✅ complete)
 - **Height adjustment**: Two pneumatic pistons change the height of the full power wheel
   - Allows balls to be pushed out at two different heights
 
@@ -77,7 +77,7 @@ The robot has:
 
 ---
 
-### Feature 4: Height Adjustment System 📋
+### Feature 4: Height Adjustment System ✅
 
 **Hardware Required:**
 - 2x Pneumatic Pistons
@@ -88,11 +88,11 @@ The robot has:
 - Toggle between positions with controller button
 
 **Implementation Steps:**
-1. [ ] Write tests for PneumaticController class (TDD - RED phase)
-2. [ ] Implement pneumatic piston control
-3. [ ] Add position tracking (high/low)
-4. [ ] Add toggle function
-5. [ ] Integrate with controller
+1. [x] Write tests for PneumaticController class (TDD - RED phase) ✅
+2. [x] Implement pneumatic piston control ✅
+3. [x] Add position tracking (high/low) ✅
+4. [x] Add toggle function ✅
+5. [ ] Integrate with controller (hardware integration next)
 6. [ ] Test on hardware
 
 ---
