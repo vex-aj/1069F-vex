@@ -16,9 +16,10 @@ ROBOT_OBJECTS = $(ROBOT_SOURCES:%.cpp=$(BUILD_DIR)/%.o)
 ROBOT_TARGET = robot_code
 
 # Test sources
-TEST_SOURCES = $(TEST_DIR)/test_drivetrain.cpp $(TEST_DIR)/test_intakecontroller.cpp
+TEST_SOURCES = $(TEST_DIR)/test_drivetrain.cpp $(TEST_DIR)/test_intakecontroller.cpp $(TEST_DIR)/test_rampcontroller.cpp
 TEST_TARGET = $(BUILD_DIR)/test_runner
 INTAKE_TEST_TARGET = $(BUILD_DIR)/test_intake_runner
+RAMP_TEST_TARGET = $(BUILD_DIR)/test_ramp_runner
 
 .PHONY: all clean test robot
 
@@ -26,11 +27,13 @@ INTAKE_TEST_TARGET = $(BUILD_DIR)/test_intake_runner
 all: test
 
 # Build and run all tests
-test: $(TEST_TARGET) $(INTAKE_TEST_TARGET)
+test: $(TEST_TARGET) $(INTAKE_TEST_TARGET) $(RAMP_TEST_TARGET)
 	@echo "Running DriveTrain unit tests..."
 	@./$(TEST_TARGET)
 	@echo "\nRunning IntakeController unit tests..."
 	@./$(INTAKE_TEST_TARGET)
+	@echo "\nRunning RampController unit tests..."
+	@./$(RAMP_TEST_TARGET)
 
 # Build test runners
 $(TEST_TARGET): $(TEST_DIR)/test_drivetrain.cpp DriveTrain.cpp
@@ -40,6 +43,10 @@ $(TEST_TARGET): $(TEST_DIR)/test_drivetrain.cpp DriveTrain.cpp
 $(INTAKE_TEST_TARGET): $(TEST_DIR)/test_intakecontroller.cpp IntakeController.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -o $(INTAKE_TEST_TARGET) $(TEST_DIR)/test_intakecontroller.cpp IntakeController.cpp
+
+$(RAMP_TEST_TARGET): $(TEST_DIR)/test_rampcontroller.cpp RampController.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) -o $(RAMP_TEST_TARGET) $(TEST_DIR)/test_rampcontroller.cpp RampController.cpp
 
 
 # Build robot code (placeholder - real VEX uses PROS toolchain)
