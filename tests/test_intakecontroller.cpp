@@ -79,7 +79,7 @@ int TestRunner::testTotal = 0;
 #endif // SIMPLE_TEST_FRAMEWORK_H
 
 // Include our IntakeController class to test it
-#include "../IntakeController.h"
+#include "../src/controllers/IntakeController.h"
 
 // ============================================
 // TEST CASES FOR INTAKE CONTROLLER

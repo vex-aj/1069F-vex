@@ -84,7 +84,7 @@ int TestRunner::testTotal = 0;
 
 // Include our DriveTrain class to test it
 // Note: In a real embedded environment, we might need to mock VEX dependencies
-#include "../DriveTrain.h"
+#include "../src/controllers/DriveTrain.h"
 
 // ============================================
 // TEST CASES FOR DRIVE TRAIN

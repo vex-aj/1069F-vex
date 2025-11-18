@@ -92,7 +92,7 @@ int TestRunner::testTotal = 0;
 #endif // SIMPLE_TEST_FRAMEWORK_H
 
 // Include our PneumaticController class to test it
-#include "../PneumaticController.h"
+#include "../src/controllers/PneumaticController.h"
 
 // ============================================
 // TEST CASES FOR PNEUMATIC CONTROLLER

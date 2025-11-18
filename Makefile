@@ -6,12 +6,13 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -Wextra -g
 
 # Directories
-SRC_DIR = .
+SRC_DIR = src
+CONTROLLERS_DIR = src/controllers
 TEST_DIR = tests
 BUILD_DIR = build
 
 # Robot code (for VEX V5 - would need PROS toolchain in real project)
-ROBOT_SOURCES = main.cpp DriveTrain.cpp
+ROBOT_SOURCES = $(SRC_DIR)/main.cpp $(CONTROLLERS_DIR)/DriveTrain.cpp
 ROBOT_OBJECTS = $(ROBOT_SOURCES:%.cpp=$(BUILD_DIR)/%.o)
 ROBOT_TARGET = robot_code
 
@@ -39,21 +40,21 @@ test: $(TEST_TARGET) $(INTAKE_TEST_TARGET) $(RAMP_TEST_TARGET) $(PNEUMATIC_TEST_
 	@./$(PNEUMATIC_TEST_TARGET)
 
 # Build test runners
-$(TEST_TARGET): $(TEST_DIR)/test_drivetrain.cpp DriveTrain.cpp
+$(TEST_TARGET): $(TEST_DIR)/test_drivetrain.cpp $(CONTROLLERS_DIR)/DriveTrain.cpp
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -o $(TEST_TARGET) $(TEST_DIR)/test_drivetrain.cpp DriveTrain.cpp
+	$(CXX) $(CXXFLAGS) -I$(SRC_DIR) -o $(TEST_TARGET) $(TEST_DIR)/test_drivetrain.cpp $(CONTROLLERS_DIR)/DriveTrain.cpp
 
-$(INTAKE_TEST_TARGET): $(TEST_DIR)/test_intakecontroller.cpp IntakeController.cpp
+$(INTAKE_TEST_TARGET): $(TEST_DIR)/test_intakecontroller.cpp $(CONTROLLERS_DIR)/IntakeController.cpp
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -o $(INTAKE_TEST_TARGET) $(TEST_DIR)/test_intakecontroller.cpp IntakeController.cpp
+	$(CXX) $(CXXFLAGS) -I$(SRC_DIR) -o $(INTAKE_TEST_TARGET) $(TEST_DIR)/test_intakecontroller.cpp $(CONTROLLERS_DIR)/IntakeController.cpp
 
-$(RAMP_TEST_TARGET): $(TEST_DIR)/test_rampcontroller.cpp RampController.cpp
+$(RAMP_TEST_TARGET): $(TEST_DIR)/test_rampcontroller.cpp $(CONTROLLERS_DIR)/RampController.cpp
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -o $(RAMP_TEST_TARGET) $(TEST_DIR)/test_rampcontroller.cpp RampController.cpp
+	$(CXX) $(CXXFLAGS) -I$(SRC_DIR) -o $(RAMP_TEST_TARGET) $(TEST_DIR)/test_rampcontroller.cpp $(CONTROLLERS_DIR)/RampController.cpp
 
-$(PNEUMATIC_TEST_TARGET): $(TEST_DIR)/test_pneumaticcontroller.cpp PneumaticController.cpp
+$(PNEUMATIC_TEST_TARGET): $(TEST_DIR)/test_pneumaticcontroller.cpp $(CONTROLLERS_DIR)/PneumaticController.cpp
 	@mkdir -p $(BUILD_DIR)
-	$(CXX) $(CXXFLAGS) -o $(PNEUMATIC_TEST_TARGET) $(TEST_DIR)/test_pneumaticcontroller.cpp PneumaticController.cpp
+	$(CXX) $(CXXFLAGS) -I$(SRC_DIR) -o $(PNEUMATIC_TEST_TARGET) $(TEST_DIR)/test_pneumaticcontroller.cpp $(CONTROLLERS_DIR)/PneumaticController.cpp
 
 
 # Build robot code (placeholder - real VEX uses PROS toolchain)

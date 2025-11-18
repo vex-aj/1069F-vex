@@ -79,7 +79,7 @@ int TestRunner::testTotal = 0;
 #endif // SIMPLE_TEST_FRAMEWORK_H
 
 // Include our RampController class to test it
-#include "../RampController.h"
+#include "../src/controllers/RampController.h"
 
 // ============================================
 // TEST CASES FOR RAMP CONTROLLER
