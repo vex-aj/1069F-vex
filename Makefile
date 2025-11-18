@@ -16,23 +16,31 @@ ROBOT_OBJECTS = $(ROBOT_SOURCES:%.cpp=$(BUILD_DIR)/%.o)
 ROBOT_TARGET = robot_code
 
 # Test sources
-TEST_SOURCES = $(TEST_DIR)/test_drivetrain.cpp
+TEST_SOURCES = $(TEST_DIR)/test_drivetrain.cpp $(TEST_DIR)/test_intakecontroller.cpp
 TEST_TARGET = $(BUILD_DIR)/test_runner
+INTAKE_TEST_TARGET = $(BUILD_DIR)/test_intake_runner
 
 .PHONY: all clean test robot
 
 # Default: build tests
 all: test
 
-# Build and run tests
-test: $(TEST_TARGET)
-	@echo "Running unit tests..."
+# Build and run all tests
+test: $(TEST_TARGET) $(INTAKE_TEST_TARGET)
+	@echo "Running DriveTrain unit tests..."
 	@./$(TEST_TARGET)
+	@echo "\nRunning IntakeController unit tests..."
+	@./$(INTAKE_TEST_TARGET)
 
-# Build test runner
+# Build test runners
 $(TEST_TARGET): $(TEST_DIR)/test_drivetrain.cpp DriveTrain.cpp
 	@mkdir -p $(BUILD_DIR)
 	$(CXX) $(CXXFLAGS) -o $(TEST_TARGET) $(TEST_DIR)/test_drivetrain.cpp DriveTrain.cpp
+
+$(INTAKE_TEST_TARGET): $(TEST_DIR)/test_intakecontroller.cpp IntakeController.cpp
+	@mkdir -p $(BUILD_DIR)
+	$(CXX) $(CXXFLAGS) -o $(INTAKE_TEST_TARGET) $(TEST_DIR)/test_intakecontroller.cpp IntakeController.cpp
+
 
 # Build robot code (placeholder - real VEX uses PROS toolchain)
 robot: $(ROBOT_TARGET)
