@@ -1,0 +1,9 @@
+{
+  "project": "vex-iq",
+  "kernel": "v5",
+  "include": [
+    "src",
+    "include"
+  ]
+}
+

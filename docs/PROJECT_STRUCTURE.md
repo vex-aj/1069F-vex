@@ -18,6 +18,10 @@ vex-iq/
 │   ├── test_rampcontroller.cpp
 │   └── test_pneumaticcontroller.cpp
 │
+├── vexcode_single_file/             # VEXcode deployment version
+│   ├── main.cpp                     # Single-file version (all controllers inline)
+│   └── README.md                    # VEXcode setup instructions
+│
 ├── docs/                             # Documentation
 │   ├── AGENT.md                     # C++ style guidelines
 │   ├── DEPLOYMENT_CHECKLIST.md      # Deployment guide
@@ -51,12 +55,18 @@ vex-iq/
 - Tests are independent and fast
 - Can run without hardware
 
-### 3. **docs/** - Documentation
+### 3. **vexcode_single_file/** - Deployment Version
+- Single-file version for VEXcode V5 IDE
+- Contains all controller classes inline
+- Automatically synced from modular source code
+- See `CONTRIBUTING.md` for workflow
+
+### 4. **docs/** - Documentation
 - All markdown documentation in one place
 - Easy to find project information
 - Includes guides, checklists, and summaries
 
-### 4. **build/** - Build Artifacts
+### 5. **build/** - Build Artifacts
 - Compiled test runners
 - Object files
 - Gitignored (not committed)

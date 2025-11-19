@@ -8,9 +8,12 @@ robot_code
 # PROS build artifacts (if using PROS)
 *.bin
 *.elf
+bin/
+obj/
 
 # Editor files
-.vscode/
+# .vscode/  # Keep .vscode for PROS extension configuration
+.vscode/settings.json  # Ignore user-specific settings, but keep pros.json
 .idea/
 *.swp
 *.swo

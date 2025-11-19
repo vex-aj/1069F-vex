@@ -4,18 +4,13 @@ A VEX V5 robotics project demonstrating Test-Driven Development (TDD) best pract
 
 ## Project Structure
 
-```
-vex-iq/
-├── main.cpp              # Robot code (hardware integration)
-├── main.h                # VEX header file
-├── DriveTrain.h          # Drive train logic (testable)
-├── DriveTrain.cpp        # Drive train implementation
-├── tests/
-│   └── test_drivetrain.cpp  # Unit tests for DriveTrain
-├── TDD_GUIDE.md          # Comprehensive TDD guide
-├── Makefile              # Build system
-└── README.md             # This file
-```
+See [docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md) for complete details.
+
+Key directories:
+- `src/` - Modular source code (controller classes)
+- `tests/` - Unit tests
+- `vexcode_single_file/` - Single-file version for VEXcode deployment
+- `docs/` - Documentation
 
 ## Quick Start
 
@@ -32,9 +27,10 @@ g++ -std=c++17 tests/test_drivetrain.cpp DriveTrain.cpp -o test_runner
 
 ### Building Robot Code
 
-For actual VEX V5 deployment, you'll need the PROS toolchain:
-- Download PROS CLI from [pros.cs.purdue.edu](https://pros.cs.purdue.edu/)
-- Use `pros make` or `pros upload` commands
+For VEX V5 deployment, see deployment guides:
+- **[VEXcode Setup](docs/VEXCODE_SETUP.md)** - Recommended: Use VEXcode V5 IDE
+- **[Deployment Options](docs/DEPLOYMENT_OPTIONS.md)** - All deployment methods
+- Single-file version ready in `vexcode_single_file/main.cpp`
 
 ## TDD Workflow
 
@@ -77,20 +73,21 @@ This separation allows us to:
 4. **Clear Names**: Tests describe what they verify
 5. **Fast Tests**: Complete suite runs in seconds
 
-## Learning Resources
+## Documentation
 
-- `TDD_GUIDE.md` - Comprehensive TDD guide for robotics
-- Inline comments explain each section
-- Test examples show proper TDD patterns
+- **[TDD Guide](docs/TDD_GUIDE.md)** - Comprehensive TDD guide for robotics
+- **[Contributing](CONTRIBUTING.md)** - Development workflow and guidelines
+- **[Project Structure](docs/PROJECT_STRUCTURE.md)** - Directory organization
+- **[Style Guidelines](docs/AGENT.md)** - C++ coding standards
+- **[Deployment Guide](docs/VEXCODE_SETUP.md)** - How to deploy to robot
 
-## Next Steps
+## Contributing
 
-1. Run the tests: `make test`
-2. Add a new feature using TDD:
-   - Write test first
-   - Implement feature
-   - Refactor
-3. Deploy to robot and test with hardware
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the development workflow:
+1. Write tests first (TDD)
+2. Implement feature
+3. Update single-file version
+4. Commit
 
 Happy coding! 🤖
 
